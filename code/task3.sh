@@ -1,1 +1,3 @@
 # This is where task 3 code must be place
+
+echo "Hello World!"
