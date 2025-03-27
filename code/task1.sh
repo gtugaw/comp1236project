@@ -1,4 +1,2 @@
-#hello
 
-echo "print"
 
