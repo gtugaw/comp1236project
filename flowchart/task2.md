@@ -15,7 +15,7 @@ flowchart TB
     B-->D[squareSum = 0]
 
     D-->E{Is initialPosition <= range?}
-    E-- yes -->F[squareNum = initialValue**2
+    E-- yes -->F[squareNum = initialPosition**2
     oddNum = squareNum % 2
     factorX = x % squareNum
     consNum = initialPosition + 1
