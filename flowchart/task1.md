@@ -14,13 +14,12 @@ flowchart TD
     D --> E{"B>=product"}
     E --Noo--> N
     E -.Yes.-> G{"A<=product"}
-    G -.Yes.-> H{"product is even"}
+    G -.Yes.-> H{"Is product even?"}
     G --Noo--> I["N=N+1"]
     I --> D
     H -.Yes.- J["sum=even+even"]
     H --Noo--> K["sum=odd+odd"]
-    J --> L["sum=even+odd"]
-    K --> L["sum=even+odd"]
-    L --> M[/"hexagonal_numbers, even_count, odd_count, sum_even, sum_odd,"/] 
+    K --> M
+    J --> M[/"hexagonal_numbers, even_count, odd_count, sum_even, sum_odd,"/] 
     M --> N([Stop])
 ```
