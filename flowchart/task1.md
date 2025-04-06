@@ -20,6 +20,6 @@ flowchart TD
     H -.Yes.- J["sum=even+even"]
     H --Noo--> K["sum=odd+odd"]
     K --> M
-    J --> M[/"hexagonal_numbers, even_count, odd_count, sum_even, sum_odd,"/] 
+    J --> M[/Output: "hexagonal_numbers, even_count, odd_count, sum_even, sum_odd,"/] 
     M --> N([Stop])
 ```
