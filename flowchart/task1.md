@@ -9,7 +9,7 @@ config:
 flowchart TD
     A([START]) 
     A --> B[/"input range(A,B)"/]
-    B --> C["n = 1, even num = 0, odd num = 0"]
+    B --> C["n = 1, even num = 0, odd num = 0, odd sum = 0, even sum = 0"]
     C --> D["product = N(2N-1)"]
     D --> E{"B>=product"}
     E --Noo--> N
