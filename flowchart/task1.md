@@ -1,8 +1,11 @@
 ##PART 1 
 ##HEXAGONAL NUMBERS
+---
+config:
+  theme: redux
+---
 
-
-```
+```mermaid
 flowchart TD
     A([START]) 
     A --> B[/"input range(A,B)"/]
@@ -12,9 +15,9 @@ flowchart TD
     E -.Yes.-> N
     E --Noo--> G{"H>=A"}
     G -.Yes.-> H{"H is even"}
-    G --No--> I["N=N+1"]
+    G --Noo--> I["N=N+1"]
     H -.Yes.- J["sum=even+even"]
-    H --No--> K["sum=odd+odd"]
+    H --Noo--> K["sum=odd+odd"]
     J --> L["sum=even+odd"]
     K --> L["sum=even+odd"]
     L --> M[/"hexagonal_numbers, even_count, odd_count, sum_even, sum_odd,"/] 
