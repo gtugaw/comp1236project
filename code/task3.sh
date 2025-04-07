@@ -9,7 +9,7 @@ read -p "Enter the value of (n1): " n1
 read -p "Enter the value of (n2): " n2
 
 sum=0
-count=0
+count=$[n2-n1+1]
 n=n1
 product=1
 
@@ -26,7 +26,8 @@ sum=$[sum+term]
 
 if [ $[n] == $[n2] ]
 then
-    echo "The count of prime is $[count]."
+    echo "The number of prime in the sequence is $[count]."
+    echo "The sum of the sequence is $[sum]."
 else
     n=$[n+1]
 fi
