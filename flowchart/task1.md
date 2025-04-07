@@ -11,9 +11,9 @@ flowchart TD
     A --> B[/"input range(A,B)"/]
     B --> C["n = 1, even_num = 0, odd_num = 0, odd_sum = 0, even_sum = 0"]
     C --> D["product = n(2n-1)"]
-    D --> E{"B>=product"}
+    D --> E{"product<=B"}
     E --Noo--> N
-    E -.Yes.-> G{"A<=product"}
+    E -.Yes.-> G{"product>=A"}
     G -.Yes.-> H{"Is product even?"}
     G --Noo--> I["n=n+1"]
     I --> D
