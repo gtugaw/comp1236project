@@ -21,7 +21,7 @@ do
     term=$[ a*n*n+b*n+c ]
     sum=$[ sum+term ]
 
-    #echo "$[n] $[n2] $[term] $[sum]"
+    echo -n "$[term] "
 
     if [ $n -eq $n1 ]
     then
@@ -61,4 +61,6 @@ read -p "Enter the value of (x): " x
 if [ $[product%x] -eq 0 ]
 then
     echo "$[product] is a multiple of $[x]."
+else
+    echo "$[product] is not a multiple of $[x]."
 fi
