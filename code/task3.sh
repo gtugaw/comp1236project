@@ -14,19 +14,19 @@ sum=0
 # count=$[ n2-n1+1 ]
 count=0
 n=$[ n1 ]
-product=1
+term1=0
 
 while [ $n -le $n2 ]
 do
     term=$[ a*n*n+b*n+c ]
     sum=$[ sum+term ]
 
-    echo "$[n] $[n2] $[term] $[sum]"
+    #echo "$[n] $[n2] $[term] $[sum]"
 
     if [ $n -eq $n1 ]
     then
-        product=term
-        echo "$[product]"
+        term1=$[ term ]
+        #echo "$[product]"
     fi
     
     modulo=2
@@ -34,7 +34,7 @@ do
     while [ $[term%modulo] -ne 0 ]
     do
         modulo=$[ modulo+1 ]
-        echo "$[term] $[modulo]"
+        #echo "$[term] $[modulo]"
 
         if [ $modulo -eq $term ]
         then
@@ -43,28 +43,22 @@ do
         fi
     done
 
-    echo "$[count]"
- 
     n=$[ n+1 ]
+
 done
 
+#echo "$[term] $[term1]"
+echo "There are/is $[count] prime number(s)."
 
+echo "$[sum] is the sum of all the term."
 
+product=$[ term*term1 ]
 
+echo "$[product] is product of the first and last term."
 
-echo "The value of term where n=$[n] is $[term]."
+read -p "Enter the value of (x): " x
 
-
-
-sum=$[sum+term]
-
-if [ $[n] == $[n2] ]
+if [ $[product%x] -eq 0 ]
 then
-    echo "The number of prime in the sequence is $[count]."
-    echo "The sum of the sequence is $[sum]."
-else
-    n=$[n+1]
+    echo "$[product] is a multiple of $[x]."
 fi
-
-
-
