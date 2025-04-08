@@ -1,5 +1,12 @@
-# Task 3 Quardratic Sequence Flowchart
+# Task 3 Quadratic Sequence Flowchart
+
 ```mermaid
+---
+config:
+  theme: forest
+  look: handDrawn
+  layout: elk
+---
 flowchart TB
     A([Start])
     A-->B[/Input a, b, c, n1, n2/]
