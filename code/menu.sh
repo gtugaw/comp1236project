@@ -1,5 +1,6 @@
+# Interactive shell script for the menu
 #!/bin/bash
-# Bash code for the Menu
+
 
 password=""
 warning=0
@@ -22,4 +23,18 @@ do
     warning=$[ warning+1 ]
 done
 
-echo "The password is correct."
+echo -e "MENU"
+echo -e "1. Press [H] or [h] if you want to work with hexagonal numbers."
+echo -e "2. Press [S] or [s] if you want to work with square numbers."
+echo -e "3. Press [Q] or [q] if you want to work with quadratic sequences."
+until [[ $keys == "H" || $keys == "h" || $keys == "S" || $keys == "s" || $keys == "Q" || $keys == "q" ]]
+do
+    echo -en "Press the key: "
+    read -n 1 keys
+    if [[ $keys != "H" && $keys != "h" && $keys != "S" && $keys != "s" && $keys != "Q" && $keys != "q" ]]
+    then
+        echo -e "\nWarning: Invalid key pressed!"
+    else
+        echo -e ""
+    fi
+done
