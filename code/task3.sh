@@ -21,7 +21,7 @@ do
     term=$[ a*n*n+b*n+c ]
     sum=$[ sum+term ]
 
-    echo -n "$[term] "
+    echo "$[term] "
 
     if [ $n -eq $n1 ]
     then
