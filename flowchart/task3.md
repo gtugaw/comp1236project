@@ -18,16 +18,16 @@ flowchart TB
     E-->F[sum = sum + term]
     E-->G[/Print term/]
 
-    C-->CC[count = n2 - n1 + 1]
+    C-->CC[count = 0]
     G-->GF[modulo = 2]
     GF-->GH[remainder = term % modulo]
     GH-->GI{is remainder = 0?}
-    GJ-->GK[/Print term is not prime/]
-    GI--Yes-->GJ[count = count - 1]
+    GI--Yes-->GK[/Print term is not prime/]
+    GM--Yes-->GJ[count = count - 1]
 
     GI--Noo-->GL[modulo = modulo + 1]
     GL-->GM{is modulo = term?}
-    GM--Yes-->GN[/Print term is prime/]
+    GJ-->GN[/Print term is prime/]
 
     GM--Noo-->GH
 
@@ -41,13 +41,13 @@ flowchart TB
 
     H--Noo-->I[n = n + 1]
     I-->E
-    J-->K[product = product * term]
+    J-->K[product = term * term1]
     K-->L[/Print product/]
     GO-->J[/Print sum/]
     
 
     E-->N{is n = n1?}
-    N--Yes-->P[product = term]
+    N--Yes-->P[term1 = term]
 
     L-->Q[Input x]
     Q-->R[remainder = product % x]
