@@ -7,8 +7,8 @@ function task2 {
     read -p "What should be the maximum value of consecutive square numbers added?: " maxSum
     squareCount=1
     count=0
-    sumNum=0
-    value=1
+    squareSum=0
+    num=1
 
     echo; echo
 
@@ -38,19 +38,20 @@ function task2 {
     echo "The sum of two consecutive square numbers results in: "
     echo
 
-    while [ $sumNum -lt $maxSum ]
+    while [ $squareSum -lt $maxSum ]
     do
-            firstSquare=$((value*value))
-            consNum=$((value+1))
+            firstSquare=$((num*num))
+            consNum=$((num+1))
             consSquare=$((consNum*consNum))
-            sumNum=$((firstSquare+consSquare))
-            if [ $sumNum -lt $maxSum ]
+            squareSum=$((firstSquare+consSquare))
+            if [ $squareSum -lt $maxSum ]
             then
-                    echo $sumNum
+                    echo $squareSum
                     count=$((count+1))
 
             fi
-            value=$((value+1))
+            num=$((num+1))
     done
     echo "Count of the sum of the consecutive square numbers: $count. "
+
 }

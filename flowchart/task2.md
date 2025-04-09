@@ -12,14 +12,23 @@ flowchart TB
     range = input amount of numbers
     x = input positive integer
     maxSum = input maximum sum output/]
-    B-->D[squareSum = 0]
+    B-->D[squareCount=1
+    count=0
+    squareSum=0
+    num=1
+    ]
 
-    D-->E{Is initialPosition <= range?}
-    E-- yes -->F[squareNum = initialPosition**2
+    D-->E{Is squareCount <= range?}
+    E-- yes -->F[squareNum = initialPosition ** 2
     oddNum = squareNum % 2
-    factorX = x % squareNum
-    consNum = initialPosition + 1
-    squareCons = consNum ** 2]
+    factor = x % squareNum]
+    E-->F{is oddNum = 1}
+    F--yes-->G{is factor = 0}
+    G--yes-->H[/print "squareNum is factor of x"/]
+    G--nop-->I[/print squareNum/]
+    F-->J[initialPosition = initialPosition + 1]
+    J-->D
+    
 
     F-->G{is oddNum = 1?}
     G--yes-->H[/print squareNum/]
