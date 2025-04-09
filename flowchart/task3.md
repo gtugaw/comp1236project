@@ -49,7 +49,7 @@ flowchart TB
     E-->N{is n = n1?}
     N--Yes-->P[term1 = term]
 
-    L-->Q[Input x]
+    L-->Q[/Input x/]
     Q-->R[remainder = product % x]
     R-->S{is remainder = 0?}
     S--Yes-->T[/Print product is 
