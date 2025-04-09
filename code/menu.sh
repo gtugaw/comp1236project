@@ -1,7 +1,6 @@
 # Interactive shell script for the menu
 #!/bin/bash
 
-
 password=""
 warning=0
 
@@ -23,18 +22,41 @@ do
     warning=$[ warning+1 ]
 done
 
-echo -e "MENU"
-echo -e "1. Press [H] or [h] if you want to work with hexagonal numbers."
-echo -e "2. Press [S] or [s] if you want to work with square numbers."
-echo -e "3. Press [Q] or [q] if you want to work with quadratic sequences."
-until [[ $keys == "H" || $keys == "h" || $keys == "S" || $keys == "s" || $keys == "Q" || $keys == "q" ]]
+again="Y"
+
+while [[ $again == "Y" || $again == "y" || $again == "YES" || $again == "yes"  || $again == "Yes" ]]
 do
-    echo -en "Press the key: "
-    read -n 1 keys
-    if [[ $keys != "H" && $keys != "h" && $keys != "S" && $keys != "s" && $keys != "Q" && $keys != "q" ]]
-    then
-        echo -e "\nWarning: Invalid key pressed!"
-    else
-        echo -e ""
-    fi
+    echo -e "---------------------------MENU----------------------------------"
+    echo -e "1. Press [H] or [h] if you want to work with hexagonal numbers."
+    echo -e "2. Press [S] or [s] if you want to work with square numbers."
+    echo -e "3. Press [Q] or [q] if you want to work with quadratic sequences."
+    echo -e "-----------------------------------------------------------------"
+    until [[ $keys == "H" || $keys == "h" || $keys == "S" || $keys == "s" || $keys == "Q" || $keys == "q" ]]
+    do
+        echo -en "Press the key: "
+        read -n 1 keys
+        if [[ $keys != "H" && $keys != "h" && $keys != "S" && $keys != "s" && $keys != "Q" && $keys != "q" ]]
+        then
+            echo -e "\nWarning: Invalid key pressed!"
+        else
+            case $keys in
+                H | h)
+                    echo -e "\nYou have selected to work with hexagonal numbers!"
+                    # task1
+                    ;;
+                S | s)
+                    echo -e "\nYou have selected to work with square numbers!"
+                    # task2
+                    ;;
+                Q | q)
+                    echo -e "\nYou have selected to work with quadratic numbers!"
+                    # task3
+                    ;;
+            esac
+        fi
+    done
+
+    keys=""
+
+    read -p "Do you want to work on another task? " again
 done
