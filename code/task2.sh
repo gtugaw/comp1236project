@@ -1,3 +1,10 @@
+    #Task 2 Working with Square Numbers
+    #Find square numbers in odd positions, starting from a user input initial position and a range.
+    #From those square numbers, find those that are factors of x, a user input value.
+    #Sum consecutive square numbers until a maximum value entered by user.
+    #This is the final code
+
+function task2 {
     echo "Task 2: Working with Square Numbers "
     read -p "From what position do you want to start?: " initialPosition
     read -p "How many square numbers do you want to see?: " range
@@ -15,7 +22,7 @@
 
     while [ $squareCount -le $range ]
     do
-            squareNum=$((initialPosition*initialPosition))
+            squareNum=$((initialPosition**2))
             oddNum=$((squareNum%2))
             factor=$((x%squareNum))
             if [ $oddNum -eq 1 ]
@@ -38,9 +45,9 @@
 
     while [ $squareSum -lt $maxSum ]
     do
-            firstSquare=$((num*num))
+            firstSquare=$((num**2))
             consNum=$((num+1))
-            consSquare=$((consNum*consNum))
+            consSquare=$((consNum**2))
             squareSum=$((firstSquare+consSquare))
             if [ $squareSum -lt $maxSum ]
             then
@@ -51,3 +58,4 @@
             num=$((num+1))
     done
     echo "Count of the sum of the consecutive square numbers: $count. "
+}
