@@ -1,5 +1,3 @@
-#COMP 1236 Task 2 Code
-function task2 {
     echo "Task 2: Working with Square Numbers "
     read -p "From what position do you want to start?: " initialPosition
     read -p "How many square numbers do you want to see?: " range
@@ -53,5 +51,3 @@ function task2 {
             num=$((num+1))
     done
     echo "Count of the sum of the consecutive square numbers: $count. "
-
-}

@@ -19,30 +19,30 @@ flowchart TB
     ]
 
     D-->E{Is squareCount <= range?}
-    E-- yes -->F[squareNum = initialPosition ** 2
+    E--yes-->F[squareNum = initialPosition ** 2
     oddNum = squareNum % 2
     factor = x % squareNum]
-    E-->F{is oddNum = 1}
-    F--yes-->G{is factor = 0}
-    G--yes-->H[/print "squareNum is factor of x"/]
-    G--nop-->I[/print squareNum/]
-    F-->J[initialPosition = initialPosition + 1]
-    J-->D
-    
+    F-->G{is oddNum = 1}
+    G--yes-->H{is factor = 0}
+    H--yes-->I[/print "squareNum is factor of x"/]
+    H--nop-->J[/print squareNum/]
+    I-->K[squareCount = squareCount + 1]
+    J-->K
+    K-->L[initialPosition = initialPosition + 1]
+    L-->E
 
-    F-->G{is oddNum = 1?}
-    G--yes-->H[/print squareNum/]
+    E--nop-->M{is squareSum < maxSum}
+    M--yes-->N[firstSquare = num ** 2
+    consNum = num + 1
+    consSquare = consNum**2
+    squareSum = firstSquare + consSquare]
+    N-->O{is squareSum < maxSum}
+    O--yes-->P[/print squareSum/]
+    P-->Q[count = count + 1]
+    Q-->R[num = num + 1]
+    R-->M
+    M--nop-->S[/print count/]
+    S-->T([End])
 
-    H-->I{is factorX = 0?}
-    I--yes-->J[/print "squareNum is factor of x"/]
-
-    J-->K{is squareSum < maxSum?}
-    K--yes-->L[squareSum = squareNum + squareCons]
-    L-->M[/print squareSum/]
-
-    M-->N[initialPosition = initialPosition + 1]
-    N-->E
-
-    E--no-->O(End)
 
 ```
