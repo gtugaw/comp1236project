@@ -2,11 +2,70 @@
 
 #!/bin/bash
 
+
+# Finding Hexagonal Numbers In Range
+# Segregate The Odd And Even Numbers
+# Find The Sum Of Odd And Even Numbers
 function task1 {
-    echo "TASK 1 Called."
+
+    read -p "Enter the lower bound a: " a
+    read -p "Enetr the upper bound b: " b
+
+    n=1
+    odd_count=0
+    even_count=0
+    odd_sum=0
+    even_sum=0
+    hexagonal_numbers=()
+
+    echo "hexagonal numbers in range [$a, $b]"
+
+    while true
+    do
+
+    hex=$((n * (2 * n -1)))
+
+
+    if [ $hex -ge $b ]
+    then
+    break
+
+    fi
+
+    if [ $hex -ge $a ]
+    then
+            hexagonal_numbers+=($hex)
+
+    if (( hex % 2 == 0 ))
+    then
+            echo "The number is even: $hex."
+            (( even_count++ ))
+            (( even_sum += hex ))
+    else
+            echo "The number is odd: $hex."
+            (( odd_count++ ))
+            (( odd_sum += hex ))
+    fi
+    fi
+    ((n++))
+    done
+
+    #output
+
+    echo "even count: $even_count"
+    echo "odd count: $odd_count"
+    echo "sum of even hexagonal numbers: $even_sum"
+    echo "sum of odd hexagonal numbers: $odd_sum"
+
 }
 
-#COMP 1236 Task 2 Code
+
+
+#Task 2 Working with Square Numbers
+#Find square numbers in odd positions, starting from a user input initial position and a range.
+#From those square numbers, find those that are factors of x, a user input value.
+#Sum consecutive square numbers until a maximum value entered by user.
+#This is the final code
 function task2 {
     echo "Task 2: Working with Square Numbers "
     read -p "From what position do you want to start?: " initialPosition
@@ -15,8 +74,8 @@ function task2 {
     read -p "What should be the maximum value of consecutive square numbers added?: " maxSum
     squareCount=1
     count=0
-    sumNum=0
-    value=1
+    squareSum=0
+    num=1
 
     echo; echo
 
@@ -25,7 +84,7 @@ function task2 {
 
     while [ $squareCount -le $range ]
     do
-            squareNum=$((initialPosition*initialPosition))
+            squareNum=$((initialPosition**2))
             oddNum=$((squareNum%2))
             factor=$((x%squareNum))
             if [ $oddNum -eq 1 ]
@@ -46,27 +105,27 @@ function task2 {
     echo "The sum of two consecutive square numbers results in: "
     echo
 
-    while [ $sumNum -lt $maxSum ]
+    while [ $squareSum -lt $maxSum ]
     do
-            firstSquare=$((value*value))
-            consNum=$((value+1))
-            consSquare=$((consNum*consNum))
-            sumNum=$((firstSquare+consSquare))
-            if [ $sumNum -lt $maxSum ]
+            firstSquare=$((num**2))
+            consNum=$((num+1))
+            consSquare=$((consNum**2))
+            squareSum=$((firstSquare+consSquare))
+            if [ $squareSum -lt $maxSum ]
             then
-                    echo $sumNum
+                    echo $squareSum
                     count=$((count+1))
 
             fi
-            value=$((value+1))
+            num=$((num+1))
     done
     echo "Count of the sum of the consecutive square numbers: $count. "
 }
 
+
+
 # Task 3 Quadratic Sequence shell script
 function task3 {
-
-
 
     # Display the formula of the quadratic sequence
     echo "For the quadratic sequence, term = an^2 + bn + c where n ranges from n1 to n2 please enter the following values."
@@ -160,10 +219,9 @@ function task3 {
         # Display that x is not a multiple of the product
         echo "The product $[product] is not a multiple of $[x]."
     fi
-
 }
 
-
+# Interactive shell script for the menu
 password=""
 warning=0
 
@@ -216,8 +274,6 @@ do
                     task3
                     ;;
             esac
-
-
         fi
     done
 
