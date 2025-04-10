@@ -2,6 +2,7 @@
 # Find square numbers in odd positions, starting from a user input initial position and a range.
 # From those square numbers, find those that are factors of x, a user input value.
 # Sum consecutive square numbers until a maximum value entered by user.
+#
 # Code by
 # Student: Maria Tai
 # ID: 101563558
@@ -63,3 +64,4 @@ function task2 {
     done
     echo "Count of the sum of the consecutive square numbers: $count. "
 }
+

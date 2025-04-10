@@ -98,3 +98,4 @@ function task3 {
         echo "The product $[product] is not a multiple of $[x]."
     fi
 }
+

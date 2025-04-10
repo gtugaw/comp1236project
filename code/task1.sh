@@ -58,3 +58,4 @@ function task1 {
     echo "sum of even hexagonal numbers: $even_sum"
     echo "sum of odd hexagonal numbers: $odd_sum"
 }
+

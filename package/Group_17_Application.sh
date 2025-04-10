@@ -1,15 +1,16 @@
-# Final shell script of the application
-
-#!/bin/bash
-
-
 # Finding Hexagonal Numbers In Range
 # Segregate The Odd And Even Numbers
 # Find The Sum Of Odd And Even Numbers
+#
+# Coded by
+# Student: Disha Padsala
+# ID: 101581979
+#
+
 function task1 {
 
     read -p "Enter the lower bound a: " a
-    read -p "Enetr the upper bound b: " b
+    read -p "Enter the upper bound b: " b
 
     n=1
     odd_count=0
@@ -23,31 +24,31 @@ function task1 {
     while true
     do
 
-    hex=$((n * (2 * n -1)))
+        hex=$((n * (2 * n -1)))
 
 
-    if [ $hex -ge $b ]
-    then
-    break
+        if [ $hex -ge $b ]
+        then
+            break
 
-    fi
+        fi
 
-    if [ $hex -ge $a ]
-    then
+        if [ $hex -ge $a ]
+        then
             hexagonal_numbers+=($hex)
 
-    if (( hex % 2 == 0 ))
-    then
-            echo "The number is even: $hex."
-            (( even_count++ ))
-            (( even_sum += hex ))
-    else
-            echo "The number is odd: $hex."
-            (( odd_count++ ))
-            (( odd_sum += hex ))
-    fi
-    fi
-    ((n++))
+            if (( hex % 2 == 0 ))
+            then
+                echo "The number is even: $hex."
+                (( even_count++ ))
+                (( even_sum += hex ))
+            else
+                echo "The number is odd: $hex."
+                (( odd_count++ ))
+                (( odd_sum += hex ))
+            fi
+        fi
+        ((n++))
     done
 
     #output
@@ -56,17 +57,20 @@ function task1 {
     echo "odd count: $odd_count"
     echo "sum of even hexagonal numbers: $even_sum"
     echo "sum of odd hexagonal numbers: $odd_sum"
-
 }
 
+# Task 2 Working with Square Numbers
+# Find square numbers in odd positions, starting from a user input initial position and a range.
+# From those square numbers, find those that are factors of x, a user input value.
+# Sum consecutive square numbers until a maximum value entered by user.
+#
+# Code by
+# Student: Maria Tai
+# ID: 101563558
+#
 
-
-#Task 2 Working with Square Numbers
-#Find square numbers in odd positions, starting from a user input initial position and a range.
-#From those square numbers, find those that are factors of x, a user input value.
-#Sum consecutive square numbers until a maximum value entered by user.
-#This is the final code
 function task2 {
+
     echo "Task 2: Working with Square Numbers "
     read -p "From what position do you want to start?: " initialPosition
     read -p "How many square numbers do you want to see?: " range
@@ -84,18 +88,18 @@ function task2 {
 
     while [ $squareCount -le $range ]
     do
-            squareNum=$((initialPosition**2))
-            oddNum=$((squareNum%2))
-            factor=$((x%squareNum))
-            if [ $oddNum -eq 1 ]
+        squareNum=$((initialPosition**2))
+        oddNum=$((squareNum%2))
+        factor=$((x%squareNum))
+        if [ $oddNum -eq 1 ]
             then
-                    if [ $factor -eq 0 ]
-                    then
-                            echo "$squareNum --> is a factor of $x. "
-                    else
-                            echo $squareNum
-                    fi
-                    squareCount=$((squareCount+1))
+                if [ $factor -eq 0 ]
+                then
+                    echo "$squareNum --> is a factor of $x. "
+                else
+                    echo $squareNum
+                fi
+                squareCount=$((squareCount+1))
             fi
             initialPosition=$((initialPosition + 1))
     done
@@ -107,26 +111,28 @@ function task2 {
 
     while [ $squareSum -lt $maxSum ]
     do
-            firstSquare=$((num**2))
-            consNum=$((num+1))
-            consSquare=$((consNum**2))
-            squareSum=$((firstSquare+consSquare))
-            if [ $squareSum -lt $maxSum ]
-            then
-                    echo $squareSum
-                    count=$((count+1))
+        firstSquare=$((num**2))
+        consNum=$((num+1))
+        consSquare=$((consNum**2))
+        squareSum=$((firstSquare+consSquare))
+        if [ $squareSum -lt $maxSum ]
+        then
+            echo $squareSum
+            count=$((count+1))
 
-            fi
-            num=$((num+1))
+        fi
+        num=$((num+1))
     done
     echo "Count of the sum of the consecutive square numbers: $count. "
 }
 
-
-
 # Task 3 Quadratic Sequence shell script
-function task3 {
+#
+# Coded by
+# Student: Genesis Tugawin
+# ID: 101579615
 
+function task3 {
     # Display the formula of the quadratic sequence
     echo "For the quadratic sequence, term = an^2 + bn + c where n ranges from n1 to n2 please enter the following values."
 
@@ -222,31 +228,47 @@ function task3 {
 }
 
 # Interactive shell script for the menu
+#
+# Coded by
+# Student: Genesis Tugawin
+# ID: 101579615 
+#
+
+# Set the password to empty
 password=""
+
+# Set the warning counter to zero
 warning=0
 
+# Check if password is equal to w22
 while [[ $password != "w22" ]]
 do
+    # Exit program after three invalid password
     if [ $warning -eq 3 ]
     then
+        echo "Exiting program, maximum invalid password reach."
         exit
     fi
 
+    # Print warning after two invalid password
     if [ $warning -eq 2 ]
     then
         echo "Warning: Only one left attempt to input the correct password!"
     fi
 
+    # Ask user to enter a password
     read -p "Please enter the password: " password
-    #echo "$password"
-
+    
+    # Increment warning counter
     warning=$[ warning+1 ]
 done
 
+# Set answer to continue working to yes
 again="Y"
 
 while [[ $again == "Y" || $again == "y" || $again == "YES" || $again == "yes"  || $again == "Yes" ]]
 do
+    # Display the menu of the program
     echo -e "---------------------------MENU----------------------------------"
     echo -e "1. Press [H] or [h] if you want to work with hexagonal numbers."
     echo -e "2. Press [S] or [s] if you want to work with square numbers."
@@ -277,7 +299,10 @@ do
         fi
     done
 
+    # Set pressed keys to empty
     keys=""
 
+    # Ask user to continue working or not
+    echo    "------------------------------------"
     read -p "Do you want to work on another task? " again
 done

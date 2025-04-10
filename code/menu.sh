@@ -1,4 +1,9 @@
 # Interactive shell script for the menu
+#
+# Coded by
+# Student: Genesis Tugawin
+# ID: 101579615 
+#
 
 # Set the password to empty
 password=""
