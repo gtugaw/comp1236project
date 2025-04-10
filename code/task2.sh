@@ -2,7 +2,7 @@
     #Find square numbers in odd positions, starting from a user input initial position and a range.
     #From those square numbers, find those that are factors of x, a user input value.
     #Sum consecutive square numbers until a maximum value entered by user.
-    #This is the final code
+    #Code by Maria Tai
 
 function task2 {
     echo "Task 2: Working with Square Numbers "
