@@ -3,7 +3,7 @@
 # Find The Sum Of Odd And Even Numbers
 
 read -p "Enter the lower bound a: " a
-read -p "Enetr the upper bound b: " b
+read -p "Enter the upper bound b: " b
 
 n=1
 odd_count=0
