@@ -1,17 +1,13 @@
-# Draft Task 2 Flowchart
-```
-Comments:
-1) Hello, this is a draft. Comment anything in this block/set of backticks ty.
-```
+# Task 2 Flowchart
 
 ```mermaid
 flowchart TB
     A([Start])
 
-    A-->B[/initialPosition = input initial position
-    range = input amount of numbers
-    x = input positive integer
-    maxSum = input maximum sum output/]
+    A-->B[/input initialPosition 
+    input range
+    input x
+    input maxSum/]
     B-->D[squareCount=1
     count=0
     squareSum=0
@@ -25,13 +21,13 @@ flowchart TB
     F-->G{is oddNum = 1}
     G--yes-->H{is factor = 0}
     H--yes-->I[/print "squareNum is factor of x"/]
-    H--nop-->J[/print squareNum/]
+    H--nope-->J[/print squareNum/]
     I-->K[squareCount = squareCount + 1]
     J-->K
     K-->L[initialPosition = initialPosition + 1]
     L-->E
 
-    E--nop-->M{is squareSum < maxSum}
+    E--nope-->M{is squareSum < maxSum}
     M--yes-->N[firstSquare = num ** 2
     consNum = num + 1
     consSquare = consNum**2
@@ -41,7 +37,7 @@ flowchart TB
     P-->Q[count = count + 1]
     Q-->R[num = num + 1]
     R-->M
-    M--nop-->S[/print count/]
+    M--nope-->S[/print count/]
     S-->T([End])
 
 
